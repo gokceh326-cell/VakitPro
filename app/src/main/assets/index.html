@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VakitPro</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #101820;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            padding: 25px 10px;
+            background: #16232e;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: #b8c7d1;
+        }
+
+        .card {
+            margin: 25px 15px;
+            padding: 20px;
+            background: #1d303d;
+            border-radius: 18px;
+        }
+
+        .city {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .time {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .date {
+            color: #b8c7d1;
+        }
+
+        .prayer {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            margin: 8px 0;
+            background: #263e4d;
+            border-radius: 12px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🕌 VakitPro</h1>
+    <div class="subtitle">İslami Yaşam ve Namaz Vakitleri</div>
+</header>
+
+<div class="card">
+    <div class="city">📍 İstanbul</div>
+
+    <div class="time" id="clock">00:00:00</div>
+
+    <div class="date" id="date"></div>
+</div>
+
+<div class="card">
+
+    <div class="prayer">
+        <span>İmsak</span>
+        <b>04:25</b>
+    </div>
+
+    <div class="prayer">
+        <span>Güneş</span>
+        <b>06:02</b>
+    </div>
+
+    <div class="prayer">
+        <span>Öğle</span>
+        <b>13:10</b>
+    </div>
+
+    <div class="prayer">
+        <span>İkindi</span>
+        <b>17:05</b>
+    </div>
+
+    <div class="prayer">
+        <span>Akşam</span>
+        <b>20:18</b>
+    </div>
+
+    <div class="prayer">
+        <span>Yatsı</span>
+        <b>21:48</b>
+    </div>
+
+</div>
+
+<script>
+function saatGuncelle() {
+    const simdi = new Date();
+
+    document.getElementById("clock").textContent =
+        simdi.toLocaleTimeString("tr-TR");
+
+    document.getElementById("date").textContent =
+        simdi.toLocaleDateString("tr-TR", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+}
+
+setInterval(saatGuncelle, 1000);
+saatGuncelle();
+</script>
+
+</body>
+</html>
